@@ -51,7 +51,7 @@ class MainActivity : ComponentActivity() {
                             )
                         Button(
                             onClick = {
-                                if (selectedPage != 7)
+                                if (selectedPage != 6)
                                     selectedPage++
                                 else selectedPage =0
                             },
