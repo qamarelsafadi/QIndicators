@@ -1,0 +1,73 @@
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+// If you want to publish your sources as well
+task androidSourcesJar(type: Jar) {
+    archiveClassifier.set('sources')
+    from android.sourceSets.main.java.srcDirs
+    from android.sourceSets.main.kotlin.srcDirs
+}
+
+artifacts {
+    archives androidSourcesJar
+}
+
+group = GROUP_ID
+version = VERSION
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+
+                groupId GROUP_ID
+                artifactId ARTIFACT_ID
+                version VERSION
+
+                from components.release
+                artifact androidSourcesJar
+
+                pom {
+                    name = ARTIFACT_ID
+                    description = 'is a jetpack Compose library that will help you show indicators in your app'
+                    url = SITE_URL
+                    licenses {
+                        // Your licensing information
+                        license {
+                            name = 'The Apache Software License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = 'qamarsafadi'
+                            name = 'Qamar Safadi'
+                            email = 'qamar.elsafadi98@gmail.com'
+                        }
+                        // More developers if any...
+                    }
+
+                    scm {
+                        connection = GIT_URL
+                        developerConnection = GIT_URL
+                        url = SITE_URL
+                    }
+                }
+            }
+        }
+    }
+}
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def keyId = properties.getProperty('signing.keyId')
+def passwordOss = properties.getProperty('signing.password')
+def profileId = properties.getProperty('GPG_SIGNING_KEY')
+
+signing {
+    useInMemoryPgpKeys(
+            keyId,
+            profileId,
+            passwordOss,
+    )
+    sign publishing.publications
+}

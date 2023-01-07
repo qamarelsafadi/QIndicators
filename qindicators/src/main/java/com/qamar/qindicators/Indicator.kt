@@ -26,7 +26,7 @@ fun Indicators(
     count: Int,
     size: Int,
     spacer: Int,
-    selectedPage: Int = 0,
+    selectedIndex: Int = 0,
     indicatorSelectedLength: Int = 60,
     modifier: Modifier = Modifier
         .fillMaxWidth(),
@@ -39,7 +39,7 @@ fun Indicators(
         horizontalArrangement = Arrangement.Center
     ) {
         repeat(count) {
-            val isSelected = selectedPage == it
+            val isSelected = selectedIndex == it
             IndicatorView(
                 isSelected, size, indicatorSelectedLength, selectedColor, unselectedColor, spacer
             )

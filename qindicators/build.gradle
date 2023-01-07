@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
+    id 'signing'
 }
 
 android {
@@ -64,3 +66,5 @@ dependencies {
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
 }
+
+apply from: 'publish.gradle'
