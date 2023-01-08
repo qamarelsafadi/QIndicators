@@ -8,8 +8,7 @@ is a jetpack Compose library will help you showing indicators in your app within
 
 
 ## Demo
-
-https://user-images.githubusercontent.com/30949634/211168833-9ed558bb-d6d2-49f3-aad2-b440aa355782.mp4
+<img src="https://user-images.githubusercontent.com/30949634/211209733-52460b9a-8076-43a7-80fe-5c2c8c96e2db.gif" width="30%" height="30%"/>
 
 ## Download
 
