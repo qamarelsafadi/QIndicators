@@ -42,9 +42,41 @@ You can implement your indicators with composable function as seen in the below:
             unselectedColor = PurpleGrey40
             )
             
+ // you can change button with horizontal pager here
+            
+Button( onClick = {  if (selectedPage != 6) selectedPage++ else selectedPage = 0 },
+         modifier = Modifier.align(Alignment.BottomStart).padding(24.dp))
+         {
+             Icon( painter = painterResource(id = R.drawable.backbutton),contentDescription = ""  )
+         }
+            
 ```
 
 
+
+## Composable Parameters 
+
+| Parameter     | Description |
+| ------------- | ------------- |
+| count  | Count of your indicators  |
+| size  | Indicator size  |
+| spacer  | Space between indicators  |
+| selectedPage  | current selected index  |
+| indicatorSelectedLength  | Length of selected indicator  |
+| selectedColor  | Selected indicator color  |
+| unselectedColor  | Unselected indicator color  |
+
+
+
+
+
+   
+    
+ 
+  
+   
+    
+     
 
 
 
