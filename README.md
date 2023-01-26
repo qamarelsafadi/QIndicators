@@ -1,7 +1,7 @@
 
 # QIndicators 
 
-is a jetpack Compose library will help you showing indicators in your app within buttons, pagers everywhere. 
+QIndicators is a jetpack Compose library that will help you creating your own Indicators with a diffirent shape for the selected one and a simple animation for it. 
 
 
 
@@ -52,11 +52,12 @@ Button( onClick = {  if (selectedPage != 6) selectedPage++ else selectedPage = 0
             
 ```
 
+You can also customize the appearance of the indicator by passing in the following properties:
 
 
-## Composable Parameters 
+## Composable Properties 
 
-| Parameter     | Description |
+| Properties     | Description |
 | ------------- | ------------- |
 | count  | Count of your indicators  |
 | size  | Indicator size  |
